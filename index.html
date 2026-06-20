@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Pentad · Ukubona LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg0:#0d0d0d;--bg1:#161616;--bg2:#1e1e1e;--bg3:#282828;
+  --border:rgba(255,255,255,0.07);--border-md:rgba(255,255,255,0.13);
+  --text0:#f2f0eb;--text1:#b8b4aa;--text2:#6e6a62;
+  --accent:#7f77dd;--accent-d:rgba(127,119,221,0.15);--accent-b:rgba(127,119,221,0.35);
+  --gold:#c8921a;--gold-d:rgba(200,146,26,0.13);--gold-b:rgba(200,146,26,0.32);
+  --coral:#d85a30;--coral-d:rgba(216,90,48,0.13);--coral-b:rgba(216,90,48,0.32);
+  --teal:#1d9e75;--teal-d:rgba(29,158,117,0.13);--teal-b:rgba(29,158,117,0.30);
+  --rose:#c0516a;--rose-d:rgba(192,81,106,0.13);--rose-b:rgba(192,81,106,0.30);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono','Fira Mono',monospace;
+}
+[data-theme="light"]{
+  --bg0:#f5f3ee;--bg1:#ffffff;--bg2:#f0ede6;--bg3:#e8e4db;
+  --border:rgba(0,0,0,0.07);--border-md:rgba(0,0,0,0.13);
+  --text0:#1a1916;--text1:#4a4740;--text2:#8a8680;
+  --accent:#534ab7;--accent-d:rgba(83,74,183,0.09);--accent-b:rgba(83,74,183,0.28);
+  --gold:#7a520a;--gold-d:rgba(122,82,10,0.09);--gold-b:rgba(122,82,10,0.26);
+  --coral:#993c1d;--coral-d:rgba(153,60,29,0.09);--coral-b:rgba(153,60,29,0.26);
+  --teal:#127a58;--teal-d:rgba(18,122,88,0.09);--teal-b:rgba(18,122,88,0.24);
+  --rose:#923148;--rose-d:rgba(146,49,72,0.09);--rose-b:rgba(146,49,72,0.24);
+}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--sans);background:var(--bg0);color:var(--text0);line-height:1.75;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;}
+
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+nav{position:sticky;top:0;z-index:200;background:var(--bg0);border-bottom:1px solid var(--border);transition:background .3s;}
+.nav-inner{max-width:860px;margin:0 auto;padding:0 1.5rem;height:52px;display:flex;align-items:center;gap:.85rem;}
+.logo-wrap{width:30px;height:30px;flex-shrink:0;position:relative;}
+.logo-wrap img{width:100%;height:100%;object-fit:contain;position:absolute;top:0;left:0;transition:opacity .35s;animation:spin 120s linear infinite;}
+.logo-dark{opacity:1;}.logo-light{opacity:0;}
+[data-theme="light"] .logo-dark{opacity:0;}[data-theme="light"] .logo-light{opacity:1;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(prefers-reduced-motion:reduce){.logo-wrap img{animation:none;}}
+.nav-brand{font-family:var(--serif);font-size:.95rem;color:var(--text0);flex:1;text-decoration:none;}
+.nav-sub{font-family:var(--mono);font-size:.58rem;color:var(--text2);letter-spacing:.08em;margin-left:.4rem;}
+.theme-btn{background:var(--bg2);border:1px solid var(--border-md);border-radius:20px;padding:.25rem .75rem;font-family:var(--mono);font-size:.62rem;color:var(--text1);cursor:pointer;letter-spacing:.05em;transition:background .2s,color .2s;flex-shrink:0;}
+.theme-btn:hover{background:var(--bg3);color:var(--text0);}
+
+.outer{max-width:860px;margin:0 auto;padding:0 1.5rem;}
+
+.hero{padding:3.5rem 0 2.5rem;}
+.eyebrow{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text2);margin-bottom:.85rem;}
+.hero-title{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.08;letter-spacing:-.02em;color:var(--text0);margin-bottom:.9rem;}
+.hero-title em{font-style:italic;color:var(--accent);}
+.hero-lede{font-size:1rem;color:var(--text1);max-width:66ch;line-height:1.72;margin-bottom:1.6rem;}
+
+.pentad{margin:2.5rem 0 3rem;}
+.pentad-title{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+
+.nodes{display:flex;flex-direction:column;gap:0;}
+.node-row{display:flex;align-items:stretch;gap:0;}
+.node-connector{display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;padding-top:1.5rem;}
+.connector-line{width:1px;flex:1;background:var(--border-md);}
+.connector-arrow{font-family:var(--mono);font-size:.75rem;color:var(--text2);line-height:1;margin:.25rem 0;}
+.node-card{flex:1;background:var(--bg1);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s;}
+.node-card:hover{border-color:var(--border-md);}
+.node-accent{height:3px;}
+.node-body{padding:1.25rem 1.5rem;}
+.node-header{display:flex;align-items:baseline;gap:.75rem;margin-bottom:.6rem;}
+.node-num{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--text2);}
+.node-label{font-family:var(--serif);font-size:1.2rem;}
+.node-nietzsche{font-family:var(--mono);font-size:.65rem;color:var(--text2);letter-spacing:.04em;margin-bottom:.8rem;}
+.node-desc{font-size:.875rem;color:var(--text1);line-height:1.78;}
+.node-desc strong{color:var(--text0);font-weight:500;}
+.node-tag{display:inline-block;font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:20px;margin-top:.75rem;}
+
+.n1 .node-accent{background:var(--accent);}
+.n1 .node-tag{background:var(--accent-d);border:1px solid var(--accent-b);color:var(--accent);}
+.n1 .node-label{color:var(--accent);}
+.n2 .node-accent{background:var(--teal);}
+.n2 .node-tag{background:var(--teal-d);border:1px solid var(--teal-b);color:var(--teal);}
+.n2 .node-label{color:var(--teal);}
+.n3 .node-accent{background:var(--coral);}
+.n3 .node-tag{background:var(--coral-d);border:1px solid var(--coral-b);color:var(--coral);}
+.n3 .node-label{color:var(--coral);}
+.n4 .node-accent{background:var(--gold);}
+.n4 .node-tag{background:var(--gold-d);border:1px solid var(--gold-b);color:var(--gold);}
+.n4 .node-label{color:var(--gold);}
+.n5 .node-accent{background:var(--rose);}
+.n5 .node-tag{background:var(--rose-d);border:1px solid var(--rose-b);color:var(--rose);}
+.n5 .node-label{color:var(--rose);}
+
+.canon{background:var(--bg1);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:3rem;}
+.canon-head{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.canon-grid{display:flex;flex-direction:column;gap:.6rem;}
+.canon-row{display:flex;align-items:center;gap:1rem;}
+.canon-num{font-family:var(--mono);font-size:.7rem;color:var(--text2);width:1.2rem;flex-shrink:0;}
+.canon-works{font-size:.875rem;color:var(--text1);flex:1;}
+.canon-works em{color:var(--text0);font-style:italic;}
+.canon-node{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;padding:.15rem .5rem;border-radius:20px;flex-shrink:0;}
+
+.close-card{background:var(--gold-d);border:1px solid var(--gold-b);border-radius:14px;padding:1.75rem;margin-bottom:3rem;}
+.close-head{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.close-quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,3vw,1.35rem);color:var(--text0);line-height:1.35;margin-bottom:.75rem;}
+.close-attr{font-family:var(--mono);font-size:.65rem;color:var(--text2);line-height:1.7;}
+
+footer{border-top:1px solid var(--border);padding:2rem 0;}
+.footer-inner{max-width:860px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;}
+.footer-mark{font-family:var(--mono);font-size:.6rem;color:var(--text2);line-height:1.9;letter-spacing:.04em;}
+.footer-mark span{color:var(--text1);}
+
+@media(max-width:600px){
+  .outer{padding:0 1rem;}
+  .hero-title{font-size:1.85rem;}
+  .canon-row{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo-wrap" aria-hidden="true">
+      <img class="logo-dark"  src="https://abikesa.github.io/logos/assets/ukubona-dark.png"  alt=""/>
+      <img class="logo-light" src="https://abikesa.github.io/logos/assets/ukubona-light.png" alt=""/>
+    </div>
+    <a class="nav-brand" href="#">Ukubona <span class="nav-sub">· the pentad · one page</span></a>
+    <button class="theme-btn" id="theme-btn">light</button>
+  </div>
+</nav>
+
+<div class="outer">
+  <header class="hero">
+    <p class="eyebrow">Ukubona LLC · Nietzsche Distilled · Kampala · 20 Jun 2026</p>
+    <h1 class="hero-title">Five stages.<br>One <em>geodesic</em>.</h1>
+    <p class="hero-lede">Language → Science → Art → Life → Meaning. Each stage a local minimum. Each title of escape a preposition in the grammar of overcoming. Meaning is not arrival — it is the metric tensor that makes the others measurable. What others fail to say in a book, said here in one page.</p>
+  </header>
+
+  <div class="pentad">
+    <p class="pentad-title">The five stages — local minima and the one escape</p>
+    <div class="nodes">
+
+      <div class="node-row">
+        <div class="node-card n1">
+          <div class="node-accent"></div>
+          <div class="node-body">
+            <div class="node-header">
+              <span class="node-num">I</span>
+              <span class="node-label">Language</span>
+            </div>
+            <div class="node-nietzsche">Nietzsche: Birth of Tragedy + Untimely Meditations</div>
+            <p class="node-desc">Nietzsche still inside philology, speaking the borrowed vocabulary of Schopenhauer and Wagner. The tools are linguistic, the problem is aesthetic, the instrument is classical scholarship. <strong>This is the trap he writes from, not yet through.</strong> Every system begins here — in naming, in taxonomy, in the syntax of what can be said.</p>
+            <span class="node-tag">local minimum</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-connector"><div class="connector-line"></div><div class="connector-arrow">↓</div><div class="connector-line"></div></div>
+        <div style="flex:1;"></div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-card n2">
+          <div class="node-accent"></div>
+          <div class="node-body">
+            <div class="node-header">
+              <span class="node-num">II</span>
+              <span class="node-label">Science</span>
+            </div>
+            <div class="node-nietzsche">Nietzsche: Human All Too Human + Dawn + Gaya Scienza</div>
+            <p class="node-desc">The free spirit period. He picks up the scalpel of Enlightenment critique, turns it on Wagner, on metaphysics, on morality. <strong>Science as the local minimum that feels like liberation</strong> until you notice it's still a counting operation — okubala masquerading as kulaba. The Socratic trap: mistaking measurement for sight.</p>
+            <span class="node-tag">local minimum</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-connector"><div class="connector-line"></div><div class="connector-arrow">↓</div><div class="connector-line"></div></div>
+        <div style="flex:1;"></div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-card n3">
+          <div class="node-accent"></div>
+          <div class="node-body">
+            <div class="node-header">
+              <span class="node-num">III</span>
+              <span class="node-label">Art</span>
+            </div>
+            <div class="node-nietzsche">Nietzsche: Thus Spoke Zarathustra</div>
+            <p class="node-desc">The most explicitly aesthetic work in the canon. Prophecy, poetry, song, parable. The eternal recurrence announced not as argument but as vision. Existence justified as aesthetic phenomenon. <strong>And also the most misunderstood</strong> — read as religion, consumed as narcotic. Art as local minimum: it can become another Romanticism, another consolation, another trap with beautiful walls.</p>
+            <span class="node-tag">local minimum</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-connector"><div class="connector-line"></div><div class="connector-arrow">↓</div><div class="connector-line"></div></div>
+        <div style="flex:1;"></div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-card n4">
+          <div class="node-accent"></div>
+          <div class="node-body">
+            <div class="node-header">
+              <span class="node-num">IV</span>
+              <span class="node-label">Life</span>
+            </div>
+            <div class="node-nietzsche">Nietzsche: Beyond Good &amp; Evil</div>
+            <p class="node-desc">"Beyond" is the preposition of escape. But what's being escaped isn't a doctrine — it's <strong>the deepest attractor basin in Western civilization</strong>: the moral interpretation of existence. The basin that makes suffering wrong, makes life something to be justified rather than affirmed. Escaping good and evil isn't a logical refutation. It's a physiological event. You can only do it from the body, from health, from what he calls overflowing life. Stages I–III were all defending this minimum without knowing it.</p>
+            <span class="node-tag">escape of the meta-minimum</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-connector"><div class="connector-line"></div><div class="connector-arrow">↓</div><div class="connector-line"></div></div>
+        <div style="flex:1;"></div>
+      </div>
+
+      <div class="node-row">
+        <div class="node-card n5">
+          <div class="node-accent"></div>
+          <div class="node-body">
+            <div class="node-header">
+              <span class="node-num">V</span>
+              <span class="node-label">Meaning</span>
+            </div>
+            <div class="node-nietzsche">Nietzsche: Genealogy + Twilight + Ecce Homo — Ukubona: witnessing</div>
+            <p class="node-desc">The retrospective gaze. Not discovery but <strong>witnessing</strong>. The Genealogy shows how the moral basin was constructed — not to destroy morality but to see it clearly, which is already beyond it. Twilight smashes idols. Ecce Homo: "I placed the crown on myself." Not arrived at meaning — became it. No distinction anymore between the work and the one who worked. State<sub>t</sub> = Σ Event<sub>i</sub>. The autobiography as proof. The life as argument. Not the bottom of the bowl — the metric tensor that makes the other four measurable.</p>
+            <span class="node-tag">meta-coordinate · not terminal</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="canon">
+    <p class="canon-head">The canon as trajectory</p>
+    <div class="canon-grid">
+      <div class="canon-row">
+        <span class="canon-num">I.</span>
+        <span class="canon-works"><em>Birth of Tragedy, Untimely Meditations</em></span>
+        <span class="canon-node" style="background:var(--accent-d);border:1px solid var(--accent-b);color:var(--accent);">Language</span>
+      </div>
+      <div class="canon-row">
+        <span class="canon-num">II.</span>
+        <span class="canon-works"><em>Dawn, Human All Too Human, Gaya Scienza</em></span>
+        <span class="canon-node" style="background:var(--teal-d);border:1px solid var(--teal-b);color:var(--teal);">Science</span>
+      </div>
+      <div class="canon-row">
+        <span class="canon-num">III.</span>
+        <span class="canon-works"><em>Thus Spoke Zarathustra</em></span>
+        <span class="canon-node" style="background:var(--coral-d);border:1px solid var(--coral-b);color:var(--coral);">Art</span>
+      </div>
+      <div class="canon-row">
+        <span class="canon-num">IV.</span>
+        <span class="canon-works"><em>Beyond Good &amp; Evil</em> — the title is the escape</span>
+        <span class="canon-node" style="background:var(--gold-d);border:1px solid var(--gold-b);color:var(--gold);">Life</span>
+      </div>
+      <div class="canon-row">
+        <span class="canon-num">V.</span>
+        <span class="canon-works"><em>Genealogy, Twilight of the Idols, Ecce Homo</em></span>
+        <span class="canon-node" style="background:var(--rose-d);border:1px solid var(--rose-b);color:var(--rose);">Meaning</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="close-card">
+    <div class="close-head">The structure beneath the structure</div>
+    <div class="close-quote">"Beyond Good &amp; Evil doesn't escape a local minimum. It escapes the minimum that all the other local minima were defending."</div>
+    <p class="close-attr">Stages I–III (Language, Science, Art) were each, in their captured forms, downstream of moral interpretation — sneaking in the assumption that suffering requires justification, that existence needs to be earned. IV names the frame. V witnesses from outside it. The canon is not a bibliography. It is a lived trajectory.<br><br>Okubala si Kulaba.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-mark">
+      <div>Ukubona LLC — <span>The Pentad · One Page</span></div>
+      <div style="margin-top:3px;font-size:.56rem">State<sub>t</sub> = Σ Event<sub>i</sub> · Kampala · 20 Jun 2026</div>
+    </div>
+    <div class="footer-mark" style="text-align:right;">
+      <div>okubonabona → kubona → ivyabona</div>
+      <div>ukubona → <span>sawubona</span> → ngikhona</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const html = document.documentElement;
+const btn = document.getElementById('theme-btn');
+let current = 'dark';
+function applyTheme(t) {
+  current = t;
+  html.setAttribute('data-theme', t);
+  btn.textContent = t === 'dark' ? 'light' : 'dark';
+}
+btn.addEventListener('click', () => applyTheme(current === 'dark' ? 'light' : 'dark'));
+applyTheme('dark');
+</script>
+</body>
+</html>
